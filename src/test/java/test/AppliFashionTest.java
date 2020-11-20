@@ -12,7 +12,7 @@ public class AppliFashionTest extends BaseTest {
     @Test(description = "Main page design verification")
     public void mainPageTest() {
         // Open main page
-        navigateToPage(PageUrl.PRODUCTION.getPageUrl(), "Test 1");
+        navigateToPage("Test 1");
 
         // Check page window
         eyes.checkWindow("main page");
@@ -23,7 +23,7 @@ public class AppliFashionTest extends BaseTest {
         fashionAppPageObject = new FashionAppPageObject(driver);
 
         // Open main page
-        navigateToPage(PageUrl.PRODUCTION.getPageUrl(), "Test 2");
+        navigateToPage("Test 2");
 
         // Choose filter color black and click filter
         fashionAppPageObject.clickCheckboxColorBlack();
@@ -39,7 +39,7 @@ public class AppliFashionTest extends BaseTest {
         ProductDetailsPageObject productDetailsPageObject = new ProductDetailsPageObject(driver);
 
         // Open main page
-        navigateToPage(PageUrl.PRODUCTION.getPageUrl(), "Test 3");
+        navigateToPage("Test 3");
 
         // Click on Appli Air x Night
         fashionAppPageObject.clickProductItemAppliAirNight();
@@ -49,9 +49,9 @@ public class AppliFashionTest extends BaseTest {
         eyes.checkWindow("product details");
     }
 
-    private void navigateToPage(String url, String testName) {
+    private void navigateToPage(String testName) {
         // Navigate to page
-        driver.get(url);
+        driver.get(PageUrl.PRODUCTION.getPageUrl());
         eyes.open(driver, "AppliFashion", testName);
     }
 }

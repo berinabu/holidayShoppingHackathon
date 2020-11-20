@@ -2,7 +2,6 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductDetailsPageObject extends BasePage {
@@ -14,7 +13,7 @@ public class ProductDetailsPageObject extends BasePage {
         super(driver);
     }
 
-    public void waitForProductName(){
+    public void waitForProductName() {
         waitForElementToAppear(shoeName);
     }
 }

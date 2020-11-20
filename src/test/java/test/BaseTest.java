@@ -1,7 +1,5 @@
 package test;
 
-import java.util.UUID;
-
 import com.applitools.eyes.BatchInfo;
 import com.applitools.eyes.TestResultsSummary;
 import com.applitools.eyes.selenium.BrowserType;
@@ -10,11 +8,8 @@ import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.visualgrid.model.DeviceName;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import webdriver.DriverType;
@@ -74,7 +69,7 @@ public class BaseTest {
     }
 
     @AfterSuite(alwaysRun = true)
-    public void closeRunner(){
+    public void closeRunner() {
         // Close runner
         if (runner != null) {
             TestResultsSummary allTestResults = runner.getAllTestResults(false);

@@ -39,5 +39,4 @@ public class FashionAppPageObject extends BasePage {
         waitForElementToAppear(productItemAppliAirNight);
         productItemAppliAirNight.click();
     }
-
 }
