@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>holidayShoppingHackathon_BerinaTiro</groupId>
@@ -97,12 +97,15 @@
                             <rootStandaloneServerDirectory>
                                 ${project.basedir}/src/test/resources/selenium_standalone_binaries
                             </rootStandaloneServerDirectory>
-                            <downloadedZipFileDirectory>${project.basedir}/src/test/resources/selenium_standalone_zips
+                            <downloadedZipFileDirectory>
+                                ${project.basedir}/src/test/resources/selenium_standalone_zips
                             </downloadedZipFileDirectory>
-                            <customRepositoryMap>${project.basedir}/src/test/resources/RepositoryMap.xml
+                            <customRepositoryMap>
+                                ${project.basedir}/src/test/resources/RepositoryMap.xml
                             </customRepositoryMap>
                             <overwriteFilesThatExist>false</overwriteFilesThatExist>
-                            <onlyGetDriversForHostOperatingSystem>false</onlyGetDriversForHostOperatingSystem>
+                            <onlyGetDriversForHostOperatingSystem>false
+                            </onlyGetDriversForHostOperatingSystem>
                             <fileDownloadRetryAttempts>2</fileDownloadRetryAttempts>
                             <fileDownloadReadTimeout>40000</fileDownloadReadTimeout>
                             <operatingSystems>
@@ -126,11 +129,9 @@
                             <systemPropertyVariables>
                                 <browser>${browser}</browser>
                                 <!--Set properties passed in by the driver binary downloader-->
-                                <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                                <webdriver.chrome.driver>${webdriver.chrome.driver}
+                                </webdriver.chrome.driver>
                             </systemPropertyVariables>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>suite.xml</suiteXmlFile>
-                            </suiteXmlFiles>
                         </configuration>
                     </plugin>
                 </plugins>

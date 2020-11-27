@@ -1,6 +1,7 @@
 package test;
 
 import com.applitools.eyes.BatchInfo;
+import com.applitools.eyes.MatchLevel;
 import com.applitools.eyes.TestResultsSummary;
 import com.applitools.eyes.selenium.BrowserType;
 import com.applitools.eyes.selenium.Configuration;
@@ -8,30 +9,30 @@ import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.visualgrid.model.DeviceName;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import webdriver.DriverType;
 
 public class BaseTest {
 
     protected WebDriver driver;
-    protected VisualGridRunner runner;
+    protected VisualGridRunner runner = null;
     protected Eyes eyes;
     private static BatchInfo batchInfo;
     protected Configuration configuration;
 
-    @BeforeSuite(alwaysRun = true)
-    public void beforeTestSuite() {
+    @BeforeClass()
+    public void beforeSuite() {
         // Create the batchInfo object and set it up with the batchId
         batchInfo = new BatchInfo("Testing Lifecycle");
 
         runner = new VisualGridRunner(10);
     }
 
-    @BeforeTest(alwaysRun = true)
-    public void beforeSuite() {
+    @BeforeMethod()
+    public void beforeMethod() {
         driver = DriverType.CHROME.getWebDriverObject();
         eyes = new Eyes(runner);
 
@@ -41,6 +42,7 @@ public class BaseTest {
 
         // You can get your api key from the Applitools dashboard
         configuration.setApiKey("7d99Q5zxRofSnuBVBVqZJ3FpgjQRVe111ZCkn3VpmSCGAY110");
+        configuration.setBatch(batchInfo);
 
         // Add browsers with different viewports
         configuration.addBrowser(1200, 800, BrowserType.CHROME);
@@ -51,11 +53,13 @@ public class BaseTest {
         // Add mobile emulation devices in Portrait mode
         configuration.addDeviceEmulation(DeviceName.iPhone_X);
 
-        eyes.setBatch(batchInfo);
+        // Add match level Exact
+        configuration.setMatchLevel(MatchLevel.EXACT);
+
         eyes.setConfiguration(configuration);
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod()
     public void afterSuite() {
         // Close driver
         if (driver != null)
@@ -68,7 +72,7 @@ public class BaseTest {
         }
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterClass()
     public void closeRunner() {
         // Close runner
         if (runner != null) {
