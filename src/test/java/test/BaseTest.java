@@ -38,7 +38,6 @@ public class BaseTest {
 
         // Setup the configuration
         configuration = new Configuration();
-        configuration.setBatch(batchInfo);
 
         // You can get your api key from the Applitools dashboard
         configuration.setApiKey("7d99Q5zxRofSnuBVBVqZJ3FpgjQRVe111ZCkn3VpmSCGAY110");
